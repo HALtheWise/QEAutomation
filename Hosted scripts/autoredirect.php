@@ -3,7 +3,6 @@
 <body>
 
 <?php
-echo "My second PHP script!<br>";
 $return_url = $_REQUEST["launch_presentation_return_url"];
 echo $return_url;
 ?>
@@ -12,9 +11,7 @@ echo $return_url;
 <script type="text/javascript">
 	'use strict'
 	function buildResponse() {
-		var return_url = '<?php
-			echo $return_url;
-		?>';
+		var return_url = <?php echo json_encode($return_url) ?>;
 
 		var return_type = 'image_url';
 
@@ -30,10 +27,18 @@ echo $return_url;
 					'height=' + encodeURIComponent(height)];
 
 		result = return_url + '?' + result.join('&');
-
+		
 		result = result;
 
 		return result
+	}
+
+	function extractDocumentId(str) {
+		var result = str.match('[0-9a-zA-Z-]{40,}');
+		if (result.length > 0) {
+			return result[0];
+		}
+		return '';
 	}
 
 </script>
