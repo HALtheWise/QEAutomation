@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+</head>
 <body>
 
-<?php
-$return_url = $_REQUEST["launch_presentation_return_url"];
-echo $return_url;
+<?php 
+	$return_url = $_REQUEST["launch_presentation_return_url"]; 
 ?>
 <br>
 
@@ -13,16 +15,15 @@ echo $return_url;
 	function buildResponse() {
 		var return_url = <?php echo json_encode($return_url) ?>;
 
-		var return_type = 'image_url';
+		var return_type = 'iframe';
 
 		var width = '100%';
-		var height = '800';
+		var height = '700';
 
-		var image_url = 'https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png';
+		var iframe_url = 'https://drive.google.com/file/d/~ID~/preview'.replace('~ID~', extractDocumentId($('#urlinput').val()));
 
 		var result = 	['return_type=' + encodeURIComponent(return_type),
-					'url=' + encodeURIComponent(image_url),
-					'alt=' + '',
+					'url=' + encodeURIComponent(iframe_url),
 					'width=' + encodeURIComponent(width),
 					'height=' + encodeURIComponent(height)];
 
@@ -33,20 +34,26 @@ echo $return_url;
 		return result
 	}
 
-	function extractDocumentId(str) {
-		var result = str.match('[0-9a-zA-Z-]{40,}');
-		if (result.length > 0) {
+	function extractDocumentId(input) {
+		var result = input.match('[0-9a-zA-Z-]{16,}'); 
+		if (result) {
 			return result[0];
 		}
-		return '';
+		return ''; 
 	}
 
 </script>
 
-<div id='preview'>loading</div>
+<div style="display:none; font-size: 4pt; color:grey;" id='preview'>loading</div>
 <script type="text/javascript">document.getElementById('preview').innerText = buildResponse()</script>
 
-<button onclick="window.location = buildResponse()">Redirect</button>
+
+<br>
+URL of PDF on Google Drive:
+<br> 
+<input type="text" name="url" id="urlinput">
+<br>
+<button onclick="window.location = buildResponse()">Insert embedded view</button>
 
 </body>
 </html>
