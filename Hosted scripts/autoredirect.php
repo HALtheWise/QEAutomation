@@ -12,6 +12,9 @@
 
 <script type="text/javascript">
 	'use strict'
+	/**
+	* creates the iframe for displaying the embedded content
+	*/
 	function buildResponse() {
 		var return_url = <?php echo json_encode($return_url) ?>;
 
@@ -28,8 +31,6 @@
 					'height=' + encodeURIComponent(height)];
 
 		result = return_url + '?' + result.join('&');
-		
-		result = result;
 
 		return result
 	}
