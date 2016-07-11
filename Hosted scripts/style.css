@@ -1,0 +1,43 @@
+body {
+	background-color: white;
+}
+
+div, p {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+div {
+	display:none;
+	font-size: 4pt;
+	color:grey;
+}
+
+p {
+	font-size: 14pt;
+	color:black;
+	margin: 20px 0 5px 20px;
+}
+
+input {
+	width = 100%;
+	padding: 12px 20px;
+	margin: 5px 5px 0 20px;
+	box-sizing: border-box;
+	border: 1px solid lightgrey;
+	border-radius: 4px;
+	font-size: 16px;
+}
+
+.button {
+	background-color: #e7e7e7;
+	border: 1px solid lightgrey;
+	text-align: center;
+	display: inline-block;
+	padding: 12px 20px;
+	font-size: 16px;
+	border-radius: 4px;
+
+}
+
+.button:hover {
+	background-color: #bfbfbf;
+}
