@@ -47,10 +47,13 @@
 <div style="display:none; font-size: 4pt; color:grey;" id='preview'>loading</div>
 <script type="text/javascript">document.getElementById('preview').innerText = buildResponse()</script>
 <br>
-<select id=>
-	<option value="pdf">Google Drive PDF</option>
-	<option value="spreadsheet">Google Spreadsheet</option>
-</select>
+<form action="autoredirect.html">	
+	<select id="doctype">
+		<option value="pdf">Google Drive PDF</option>
+		<option value="spreadsheet">Google Spreadsheet</option>
+	</select>
+	<input type="submit">
+</form>
 <br><br>
 URL of Embedded Content:
 <br><br> 
