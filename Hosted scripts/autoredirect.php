@@ -2,6 +2,7 @@
 <html>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
@@ -44,16 +45,14 @@
 
 </script>
 
-<div style="display:none; font-size: 4pt; color:grey;" id='preview'>loading</div>
+<div id='preview'>loading</div>
 <script type="text/javascript">document.getElementById('preview').innerText = buildResponse()</script>
 
+<p>URL of Embedded Content:</p>
 
-<br>
-URL of PDF on Google Drive:
-<br> 
 <input type="text" name="url" id="urlinput">
-<br>
-<button onclick="window.location = buildResponse()">Insert embedded view</button>
+
+<button class="button" onclick="window.location = buildResponse()">Insert embedded view</button>
 
 </body>
 </html>
