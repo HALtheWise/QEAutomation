@@ -1,14 +1,9 @@
-body {
+/*body {
 	background-color: white;
 }
-
-div, p {
+*/
+body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-div {
-	display:none;
-	font-size: 4pt;
-	color:grey;
 }
 
 p {
@@ -18,7 +13,7 @@ p {
 }
 
 input {
-	width = 100%;
+	/*width = 100%;*/
 	padding: 12px 20px;
 	margin: 5px 5px 0 20px;
 	box-sizing: border-box;
@@ -27,7 +22,7 @@ input {
 	font-size: 16px;
 }
 
-.button {
+.formfield {
 	background-color: #e7e7e7;
 	border: 1px solid lightgrey;
 	text-align: center;
@@ -35,9 +30,8 @@ input {
 	padding: 12px 20px;
 	font-size: 16px;
 	border-radius: 4px;
-
 }
 
-.button:hover {
+.formfield:hover {
 	background-color: #bfbfbf;
 }
