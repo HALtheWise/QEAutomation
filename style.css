@@ -22,6 +22,19 @@ input {
 	font-size: 16px;
 }
 
+.additionalOptions > select {
+	font-size: 14pt;
+}
+
+.additionalOptions > p {
+	color: gray;
+	margin: 0;
+}
+
+.additionalOptions {
+	margin: 20px 10px;
+}
+
 .formfield {
 	background-color: #e7e7e7;
 	border: 1px solid lightgrey;
@@ -34,4 +47,9 @@ input {
 
 .formfield:hover {
 	background-color: #bfbfbf;
+}
+
+#warning {
+	color: red;
+	margin: 6pt;
 }
