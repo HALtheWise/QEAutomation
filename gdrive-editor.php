@@ -78,7 +78,7 @@
 	$(document).ready(function() {$('#embedSource').change(function() {$('#warning').html(getHelpText($('#embedSource').val()))})})
 
 	function extractDocumentId(input) {
-		var result = input.match('[0-9a-zA-Z-]{13,}'); 
+		var result = input.match('[0-9a-zA-Z_-]{13,}'); 
 		if (result) {
 			return result[0];
 		}
