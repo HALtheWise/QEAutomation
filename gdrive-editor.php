@@ -44,7 +44,7 @@
 			return 'https://docs.google.com/gview?url=~URL~&embedded=true'.replace('~URL~', encodeURIComponent(input));
 		}
 		if (mode == 'overleafPDF') {
-			var pdfURL = 'https://www.overleaf.com/docs/~ID~/pdf'.replace('~ID~', extractDocumentId(input));
+			var pdfURL = 'https://www.overleaf.com/docs/~ID~/pdf.pdf'.replace('~ID~', extractDocumentId(input));
 			return 'https://docs.google.com/gview?url=~URL~&embedded=true'.replace('~URL~', encodeURIComponent(pdfURL));
 		}
 		if (mode == 'googSheet') {
