@@ -44,7 +44,7 @@
 			return 'https://docs.google.com/gview?url=~URL~&embedded=true'.replace('~URL~', encodeURIComponent(input));
 		}
 		if (mode == 'overleafPDF') {
-			var pdfURL = 'https://www.overleaf.com/docs/~ID~/pdf.pdf'.replace('~ID~', extractDocumentId(input));
+			var pdfURL = 'https://server.legoaces.org/canvas-plugins/overleaf-redirect.php?shared_url=~URL~'.replace('~URL~', input);
 			return 'https://docs.google.com/gview?url=~URL~&embedded=true'.replace('~URL~', encodeURIComponent(pdfURL));
 		}
 		if (mode == 'googSheet') {
@@ -67,7 +67,7 @@
 			return "In order to update the published version, click \"Compile\" in a ShareLatex window while <i>not</i> signed in."
 		}
 		if (mode == 'overleafPDF'){
-			return "This embed will update automatically whenever any changes are made to the source document."
+			return "Copy the URL from the read-only copy, NOT the editor page.<br>This embed will update automatically whenever any changes are made to the source document."
 		}
 		if (mode == 'googForm'){
 			return "Be sure to copy the URL from the form preview or published form, not the editor."
