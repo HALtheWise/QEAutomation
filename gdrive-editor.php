@@ -45,7 +45,7 @@
 		}
 		if (mode == 'overleafPDF') {
 			var pdfURL = 'https://server.legoaces.org/canvas-plugins/overleaf-redirect.php?shared_url=~URL~'.replace('~URL~', input);
-			return 'https://docs.google.com/gview?url=~URL~&embedded=true'.replace('~URL~', encodeURIComponent(pdfURL));
+			return 'https://docs.google.com/gview?url=~URL~&embedded=true'.replace('~URL~', pdfURL);
 		}
 		if (mode == 'googSheet') {
 			return 'https://docs.google.com/spreadsheets/d/~ID~/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false'.replace('~ID~', extractDocumentId(input));
