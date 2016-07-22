@@ -34,28 +34,32 @@
 
 	function getIframeURL(mode, input) {
 		if (mode == 'googPDF'){
-			return 'https://drive.google.com/file/d/~ID~/preview'.replace('~ID~', extractDocumentId(input));
+			return 'https://drive.google.com/file/d/{ID}/preview'.replace('{ID}', extractDocumentId(input));
 		} 
 		// if (mode == 'sharePDF') {
-		// 	var pdfURL = 'https://www.sharelatex.com/project/~ID~/output/output.pdf?compileGroup=standard&pdfng=true'.replace('~ID~', extractDocumentId(input));
-		// 	return 'https://docs.google.com/gview?url=~URL~&embedded=true'.replace('~URL~', encodeURIComponent(pdfURL));
+		// 	var pdfURL = 'https://www.sharelatex.com/project/{ID}/output/output.pdf?compileGroup=standard&pdfng=true'.replace('{ID}', extractDocumentId(input));
+		// 	return 'https://docs.google.com/gview?url={URL}&embedded=true'.replace('{URL}', encodeURIComponent(pdfURL));
 		// } 
 		if (mode == 'otherPDF') {
-			return 'https://docs.google.com/gview?url=~URL~&embedded=true'.replace('~URL~', encodeURIComponent(input));
+			return 'https://docs.google.com/gview?url={URL}&embedded=true'.replace('{URL}', encodeURIComponent(input));
 		}
 		if (mode == 'overleafPDF') {
-			var pdfURL = 'https://server.legoaces.org/canvas-plugins/overleaf-redirect.php?shared_url=~URL~'.replace('~URL~', input);
-			return 'https://docs.google.com/gview?url=~URL~&embedded=true'.replace('~URL~', pdfURL);
+			var pdfURL = 'https://server.legoaces.org/canvas-plugins/overleaf-redirect.php?shared_url={URL}'.replace('{URL}', input);
+			return 'https://docs.google.com/gview?url={URL}&embedded=true'.replace('{URL}', pdfURL);
 		}
 		if (mode == 'googSheet') {
-			return 'https://docs.google.com/spreadsheets/d/~ID~/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false'.replace('~ID~', extractDocumentId(input));
+			return 'https://docs.google.com/spreadsheets/d/{ID}/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false'.replace('{ID}', extractDocumentId(input));
 		}
 		if (mode == 'googForm') {
-			return 'https://docs.google.com/forms/d/e/~ID~/viewform?embedded=true'.replace('~ID~', extractDocumentId(input));
+			return 'https://docs.google.com/forms/d/e/{ID}/viewform?embedded=true'.replace('{ID}', extractDocumentId(input));
 		}
 
 
 		
+	}
+
+	function updateHelpText() {
+		$('#warning').html(getHelpText($('#embedSource').val()));
 	}
 
 	function getHelpText(mode) {
@@ -67,7 +71,7 @@
 			return "In order to update the published version, click \"Compile\" in a ShareLatex window while <i>not</i> signed in."
 		}
 		if (mode == 'overleafPDF'){
-			return "Copy the URL from the read-only copy, NOT the editor page.<br>This embed will update automatically whenever any changes are made to the source document."
+			return "Copy the URL from the read-only link (found under Share), NOT the editor page.<br>This embed will update automatically whenever any changes are made to the source document."
 		}
 		if (mode == 'googForm'){
 			return "Be sure to copy the URL from the form preview or published form, not the editor."
@@ -75,7 +79,10 @@
 		return ""
 	}
 
-	$(document).ready(function() {$('#embedSource').change(function() {$('#warning').html(getHelpText($('#embedSource').val()))})})
+	$(document).ready(function() {
+		updateHelpText();
+		$('#embedSource').change(updateHelpText);
+	})
 
 	function extractDocumentId(input) {
 		var result = input.match('[0-9a-zA-Z_-]{13,}'); 
@@ -121,7 +128,7 @@
 	</select>
 
 	<br>
-	<a onclick="$('#preview').text(buildResponse())" href="#">[test]</a>
+	<a style="size: 5pt;" onclick="$('#preview').text(buildResponse())" href="#">[test]</a>
 </div>
 
 <div id='preview'></div>
