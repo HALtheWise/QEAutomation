@@ -8,12 +8,12 @@
     http://www.imsglobal.org/xsd/imsbasiclti_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imsbasiclti_v1p0.xsd
     http://www.imsglobal.org/xsd/imslticm_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticm_v1p0.xsd
     http://www.imsglobal.org/xsd/imslticp_v1p0 http://www.imsglobal.org/xsd/lti/ltiv1p0/imslticp_v1p0.xsd">
-    <blti:launch_url>http://eric.legoaces.org/dev/autoredirect.php</blti:launch_url>
-    <blti:title>Google Drive</blti:title>
-    <blti:description>This extension embeds PDF files hosted on Google Drive into the Rich Editor.</blti:description>
+    <blti:launch_url>https://server.legoaces.org/canvas-plugins/gdrive-editor.php</blti:launch_url>
+    <blti:title>[custom] Google Drive</blti:title>
+    <blti:description>This extension embeds PDF files hosted on Google Drive or Overleaf into the Rich Editor.</blti:description>
     <blti:extensions platform="canvas.instructure.com">
       <lticm:property name="privacy_level">public</lticm:property>
-      <lticm:property name="domain">example.com</lticm:property>
+      <lticm:property name="domain">server.legoaces.org</lticm:property>
       <lticm:property name="text">Google Drive</lticm:property>
       <lticm:options name="editor_button">
         <lticm:property name="enabled">true</lticm:property>
